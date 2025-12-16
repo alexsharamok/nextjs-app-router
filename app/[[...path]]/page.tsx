@@ -1,41 +1,28 @@
-// IMPORTANT This is SSR-enabled page handler. If you are looking for the SSG-enabled page handler, please use `./page.tsx.ssg-disabled` instead.
 import {
   UniformComposition,
   PageParameters,
-  ContextUpdateTransfer,
-  createServerUniformContext,
+  retrieveRoute,
+  createStaticParams,
 } from "@uniformdev/canvas-next-rsc";
 import { resolveComponent } from "@/uniform/resolve";
-import retrieveRoute from "@/uniform/l18n/localeHelper";
+import { locales } from '@/uniform/l18n/locales.json';
 
-// example component that displays current quirks from Uniform Context tracker
-// import { QuirksSetter } from "@/components/quirks-setter";
+export async function generateStaticParams() {
+  return createStaticParams({
+    expand(node) {
+      return locales.map(l => node.path.replace(':locale', l));
+    },
+  });
+}
 
 export default async function HomePage(props: PageParameters) {
   const route = await retrieveRoute(props);
-  const serverContext = await createServerUniformContext({
-    searchParams: await props.searchParams,
-  });
   return (
-    <>
-      {/* example component that sets quirk 'province' server-side with a value */}
-      <ContextUpdateTransfer
-        serverContext={serverContext}
-        update={{
-          quirks: {
-            province: "quebec",
-          },
-        }}
-      />
-      <UniformComposition
-        {...props}
-        route={route}
-        resolveComponent={resolveComponent}
-        serverContext={serverContext}
-        mode="server"
-      />
-      {/* 
-      {/* <QuirksSetter /> */}
-    </>
+    <UniformComposition
+      {...props}
+      route={route}
+      resolveComponent={resolveComponent}
+      mode="static"
+    />
   );
 }
