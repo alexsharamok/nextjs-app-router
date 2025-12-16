@@ -1,11 +1,12 @@
 import {
   UniformComposition,
   PageParameters,
-  retrieveRoute,
+  //retrieveRoute,
   createStaticParams,
 } from "@uniformdev/canvas-next-rsc";
 import { resolveComponent } from "@/uniform/resolve";
 import { locales } from '@/uniform/l18n/locales.json';
+import retrieveRoute from "@/uniform/l18n/localeHelper";
 
 export async function generateStaticParams() {
   return createStaticParams({
