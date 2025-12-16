@@ -1,0 +1,156 @@
+composition:
+  _name: Home
+  _id: 26667348-5cd1-4185-b5a0-8413e1e87117
+  _slug: /
+  type: page
+  parameters:
+    metaTitle:
+      type: text
+      value: Home
+  slots:
+    footer:
+      - _id: 57cfb8af-5ef3-4068-a58f-2a7f8a716f04
+        type: footer
+    header:
+      - _id: 20fe84e7-d005-48e7-915b-8291cb1bf546
+        type: header
+    content:
+      - _id: 4a3a2d59-3aca-4a11-b4f3-01064a4b344b
+        type: $personalization
+        slots:
+          pz:
+            - _id: fcd3be6f-661f-4e6c-b73b-4a8edef87956
+              type: hero
+              parameters:
+                title:
+                  type: text
+                  value: We are launched!
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: launchCampaign
+                        r: 0
+                        op: '>'
+                    name: personalized
+                description:
+                  type: richText
+                  value:
+                    root:
+                      type: root
+                      format: ''
+                      indent: 0
+                      version: 1
+                      children:
+                        - type: paragraph
+                          format: ''
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: >-
+                                Showing personalized content since "Launch
+                                Campaign" signal has a score.
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                          textStyle: ''
+                        - type: paragraph
+                          format: ''
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: Check dev tools for more logging info.
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                          textStyle: ''
+                      direction: ltr
+            - _id: c3f6028f-1edf-43a1-ae84-95e064302463
+              type: hero
+              parameters:
+                title:
+                  type: text
+                  value: Welcome.
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit: []
+                    name: default
+                description:
+                  type: richText
+                  value:
+                    root:
+                      type: root
+                      format: ''
+                      indent: 0
+                      version: 1
+                      children:
+                        - type: paragraph
+                          format: ''
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: 'This is default content shown to every visitor. '
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                          textStyle: ''
+                        - type: paragraph
+                          format: ''
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: 'Trigger campaign-based personalization '
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                            - link:
+                                path: /?utm_campaign=launch
+                                type: url
+                              type: link
+                              format: ''
+                              indent: 0
+                              version: 1
+                              children:
+                                - mode: normal
+                                  text: now
+                                  type: text
+                                  style: ''
+                                  detail: 0
+                                  format: 0
+                                  version: 1
+                              direction: ltr
+                            - mode: normal
+                              text: '!'
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                          textStyle: ''
+                      direction: ltr
+        parameters:
+          trackingEventName:
+            type: text
+            value: Homepage-Hero
+  _locales:
+    - en
+created: '2025-01-30T22:17:27.532728+00:00'
+modified: '2025-01-30T22:54:38.557085+00:00'
+pattern: false
