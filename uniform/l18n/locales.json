@@ -1,8 +1,8 @@
 {
-  "locales": ["en", "fr"],
+  "locales": ["en", "da"],
   "localeNames": {
     "en": "English",
-    "fr": "Français"
+    "da": "Dansk"
   },
   "defaultLocale": "en"
 }
