@@ -1,0 +1,38 @@
+# .github/workflows/test-uniform-sync.yml
+name: Test Uniform Sync
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Print environment info
+        run: |
+          node --version
+          npm --version
+          npx uniform --version || echo "Uniform CLI not found via npx"
+          pwd
+          ls -la
+          find . -maxdepth 3 -type f | sort
+
+      - name: Run Uniform sync
+        env:
+          NODE_OPTIONS: --trace-warnings
+          UNIFORM_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
+          UNIFORM_PROJECT_ID: ${{ secrets.UNIFORM_PROJECT_ID }}
+        run: |
+          npx uniform sync
