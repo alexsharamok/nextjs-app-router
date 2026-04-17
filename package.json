@@ -9,7 +9,8 @@
     "lint": "next lint",
     "uniform:pull": "uniform sync pull",
     "uniform:push": "uniform sync push",
-    "uniform:publish": "uniform context manifest publish"
+    "uniform:publish": "uniform context manifest publish",
+    "promote-step-1": "uniform sync push --config ./uniform-configs/uniform-promote-stage-1.config.ts"
   },
   "dependencies": {
     "@uniformdev/canvas-next-rsc": "20.46.0",
