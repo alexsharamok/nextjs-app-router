@@ -29,6 +29,16 @@ jobs:
           ls -la
           find . -maxdepth 3 -type f | sort
 
+      - name: Check CLI env presence
+        env:
+          UNIFORM_CLI_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
+          UNIFORM_PROJECT_ID: ${{ secrets.UNIFORM_PROJECT_ID }}
+          UNIFORM_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
+        run: |
+          echo "CLI key length: ${#UNIFORM_CLI_API_KEY}"
+          echo "API key length: ${#UNIFORM_API_KEY}"
+          echo "Project ID length: ${#UNIFORM_PROJECT_ID}"
+
       - name: Run Uniform sync
         env:
           NODE_OPTIONS: --trace-warnings
