@@ -7,6 +7,8 @@ on:
 jobs:
   test-sync:
     runs-on: ubuntu-latest
+    environment:
+      name: production
 
     steps:
       - name: Checkout repo
