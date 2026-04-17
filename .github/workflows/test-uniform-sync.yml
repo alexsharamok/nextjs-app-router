@@ -31,9 +31,9 @@ jobs:
 
       - name: Check CLI env presence
         env:
-          UNIFORM_CLI_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
-          UNIFORM_PROJECT_ID: ${{ secrets.UNIFORM_PROJECT_ID }}
-          UNIFORM_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
+          UNIFORM_CLI_API_KEY: ${{ vars.UNIFORM_API_KEY }}
+          UNIFORM_PROJECT_ID: ${{ vars.UNIFORM_PROJECT_ID }}
+          UNIFORM_API_KEY: ${{ vars.UNIFORM_API_KEY }}
         run: |
           echo "CLI key length: ${#UNIFORM_CLI_API_KEY}"
           echo "API key length: ${#UNIFORM_API_KEY}"
@@ -42,8 +42,8 @@ jobs:
       - name: Run Uniform sync
         env:
           NODE_OPTIONS: --trace-warnings
-          UNIFORM_CLI_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
-          UNIFORM_API_KEY: ${{ secrets.UNIFORM_API_KEY }}
-          UNIFORM_PROJECT_ID: ${{ secrets.UNIFORM_PROJECT_ID }}
+          UNIFORM_CLI_API_KEY: ${{ vars.UNIFORM_API_KEY }}
+          UNIFORM_API_KEY: ${{ vars.UNIFORM_API_KEY }}
+          UNIFORM_PROJECT_ID: ${{ vars.UNIFORM_PROJECT_ID }}
         run: |
           npm run promote-step-1
